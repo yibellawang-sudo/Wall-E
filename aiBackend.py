@@ -13,7 +13,7 @@ import io
 app = Flask(__name__)
 CORS(app)
 
-GEMINI_API_KEY = 'AIzaSyC3p1994QOz1NkbPkx1HG3Mjb5mQvy7DpQ'
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 UPLOAD_FOLDER = 'uploads'
