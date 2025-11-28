@@ -63,6 +63,9 @@ pip install -r requirements.txt
 ```bash
 python aiBackend.py
 ```
+```bash
+python roboSim.py
+```
 
 ### Launch dashboard
 
