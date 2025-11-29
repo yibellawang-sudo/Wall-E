@@ -13,6 +13,7 @@ import io
 app = Flask(__name__)
 CORS(app)
 
+PORT = int(os.environ.get('PORT', 5001))
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
@@ -466,19 +467,14 @@ if __name__ == '__main__':
     print("\n" + "="*60)
     print("STARTING WALL-E AI API SERVER")
     print("="*60)
-    print(f"AI Model: Gemini Vision (gemini-2.0-flash-exp)")
-    print(f"Upload folder: {os.path.abspath(UPLOAD_FOLDER)}")
-    print(f"Data file: {os.path.abspath(DATA_FILE)}")
+    print(f"AI Model: Gemini Vision")
+    print(f"Port: {PORT}")
     print(f"Loaded detections: {len(detections)}")
-    
-    print("="*60)
-    print("\nServer running at: http://localhost:5001")
-    print("API docs: http://localhost:5001/")
-    print("\nPress Ctrl+C to stop\n")
+    print("="*60 + "\n")
     
     app.run(
         host='0.0.0.0',
-        port=5001,
-        debug=True,
+        port=PORT,
+        debug=False,
         threaded=True
     )
